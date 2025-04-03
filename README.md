@@ -10,7 +10,11 @@ from df-compress.compress import compress
 ## Example
 It follows a reproducible example on `df-compress` usage:
 ```python
+<<<<<<< HEAD
 from df_compress import compress
+=======
+from df-compress.compress import compress
+>>>>>>> cf9aba9bb7b86f77ce3b68f9b9d11ccbfa4bba7d
 import pandas as pd
 import numpy as np
 

@@ -1,5 +1,5 @@
 # pycompress
-A python package to compress pandas DataFrames akin to Stata's `compress` command.
+A python package to compress pandas DataFrames akin to Stata's `compress` command. This function may proove particularly helpfull if you are dealing with large datasets.
 
 ## How to use
 After installing the package use the following import: 

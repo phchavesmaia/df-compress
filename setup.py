@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(
-    name='pycompress',
+    name='df-compress',
     version='0.1.0',    
     description="A python package to compress pandas DataFrames akin to Stata's `compress` command",
-    url='https://github.com/phchavesmaia/pycompress',
+    url='https://github.com/phchavesmaia/df-compress',
     author='Pedro H. Chaves Maia',
     author_email='pedro.maia@imdsbrasil.org',
     license='MIT',
-    packages=['pycompress'],
+    packages=['df_compress'],
     install_requires=['pandas',
                       'numpy',                     
                       ],

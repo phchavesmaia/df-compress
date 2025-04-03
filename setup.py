@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='pycompress',
     version='0.1.0',    
-    description='A python package to compress pandas DataFrames akin to Stata's `compress' command',
+    description="A python package to compress pandas DataFrames akin to Stata's `compress` command",
     url='https://github.com/phchavesmaia/pycompress',
     author='Pedro H. Chaves Maia',
     author_email='pedro.maia@imdsbrasil.org',

@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='df-compress',
-    version='0.4.1',    
+    version='0.4.2',    
     description="A python package to compress pandas DataFrames akin to Stata's `compress` command",
     long_description=long_description,
     long_description_content_type="text/markdown",  

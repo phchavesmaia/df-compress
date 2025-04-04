@@ -1,0 +1,11 @@
+cff-version: 0.4.2
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Chaves Maia"
+  given-names: "Pedro Henrique"
+  orcid: "https://orcid.org/0009-0003-4869-3352"
+title: "df-compress"
+date-released: 2025-04-03
+url: "https://github.com/phchavesmaia/df-compress"
+language: "Python"
+doi: "https://doi.org/10.5281/zenodo.15148480"

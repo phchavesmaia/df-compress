@@ -61,29 +61,30 @@ jobs:
   publish:
     runs-on: windows-latest
     needs: build
-    if: github.event_name == 'release'
+    if: |
+      github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.event.inputs.publish_artifacts == 'Y')
     steps:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.13"
-
+  
       - name: Install Twine
         run: pip install --upgrade twine
-
+  
       - name: Download a distribution artifact
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
-
+  
       - name: Publish distribution 📦 to Test PyPI
         run: |
           twine upload -r testpypi dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.test_pypi_password }}
-
+  
       - name: Publish distribution 📦 to PyPI
         run: |
           twine upload -r pypi dist/*

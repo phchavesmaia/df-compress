@@ -48,7 +48,7 @@ jobs:
         if: matrix.python-version == 3.13
 
       - name: Create a distribution package
-        run: pip setup.py sdist bdist_wheel
+        run: python pip setup.py sdist bdist_wheel
         if: matrix.python-version == 3.13
 
       - name: Upload distribution package

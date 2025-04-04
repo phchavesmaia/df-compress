@@ -1,4 +1,7 @@
-[![Build](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml/badge.svg)](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml)
+[![Build](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml/badge.svg)](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml) 
+![Python](https://img.shields.io/badge/python-3.13-blue.svg)
+![PyPI](https://img.shields.io/pypi/v/df-compress?label=pypi%20package)
+
 
 # df-compress
 A python package to compress pandas DataFrames akin to Stata's `compress` command. This function may proove particularly helpfull if you are dealing with large datasets.

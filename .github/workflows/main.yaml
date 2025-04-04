@@ -1,0 +1,84 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_artifacts:
+        description: 'Publish artifacts (Y|N)'
+        required: true
+        default: 'N'
+  release:
+    types: [published]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+env:
+  PROJECT_NAME: df-compress
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: 
+          - "3.13"
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 9
+          submodules: false
+
+      - name: Use Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Download dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Install distribution dependencies
+        run: pip install --upgrade twine setuptools wheel
+        if: matrix.python-version == 3.13
+
+      - name: Create a distribution package
+        run: pip setup.py sdist bdist_wheel
+        if: matrix.python-version == 3.13
+
+      - name: Upload distribution package
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+        if: matrix.python-version == 3.13
+
+  publish:
+    runs-on: microsoft-latest
+    needs: build
+    if: github.event_name == 'release'
+    steps:
+      - name: Download a distribution artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Publish distribution 📦 to Test PyPI
+        run: |
+          twine upload -r testpypi dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.test_pypi_password }}
+
+      - name: Publish distribution 📦 to PyPI
+        run: |
+          twine upload -r pypi dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.pypi_password }}

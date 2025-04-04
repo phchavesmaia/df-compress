@@ -1,12 +1,6 @@
 name: Build
 
 on:
-  workflow_dispatch:
-    inputs:
-      publish_artifacts:
-        description: 'Publish artifacts (Y|N)'
-        required: true
-        default: 'N'
   release:
     types: [published]
   push:

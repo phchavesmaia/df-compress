@@ -59,7 +59,7 @@ jobs:
         if: matrix.python-version == 3.13
 
   publish:
-    runs-on: microsoft-latest
+    runs-on: windows-latest
     needs: build
     if: github.event_name == 'release'
     steps:

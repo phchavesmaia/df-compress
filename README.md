@@ -1,3 +1,5 @@
+[![Build](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml/badge.svg)](https://github.com/phchavesmaia/df-compress/actions/workflows/main.yaml)
+
 # df-compress
 A python package to compress pandas DataFrames akin to Stata's `compress` command. This function may proove particularly helpfull if you are dealing with large datasets.
 

@@ -8,7 +8,7 @@ A python package to compress pandas DataFrames akin to Stata's `compress` comman
 
 ## How to use
 After installing the package use the following import: 
-```
+```python
 from df_compress import compress
 ```
 

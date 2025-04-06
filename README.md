@@ -44,6 +44,6 @@ The function has three optimal parameters (arguments):
     - defaults to `True`
   - `numeric_threshold` (float): Indicates the proportion of valid numeric entries needed to convert a string to numeric
     - defaults to `0.999`   
-  - show_conversions (bool): whether to report the changes made column by column
+  - `show_conversions` (bool): whether to report the changes made column by column
     - defaults to `False`
 

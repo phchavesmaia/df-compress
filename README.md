@@ -6,6 +6,12 @@
 # df-compress
 A python package to compress pandas DataFrames akin to Stata's `compress` command. This function may proove particularly helpfull if you are dealing with large datasets.
 
+## Installation
+You can install `df-compress` by running the following command:
+```python
+pip install df_compress
+```
+
 ## How to use
 After installing the package use the following import: 
 ```python

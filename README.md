@@ -2,7 +2,6 @@
 ![Python](https://img.shields.io/badge/python-3.13-blue.svg)
 ![PyPI](https://img.shields.io/pypi/v/df-compress?label=pypi%20package)
 [![DOI](https://zenodo.org/badge/960013907.svg)](https://doi.org/10.5281/zenodo.15148480)
-[![Socket Badge](http://localhost:4000/api/badge/pypi/package/df-compress/0.5.1?artifact_id=tar-gz)](http://localhost:4000/pypi/package/df-compress/overview/0.5.1/tar-gz)
 
 # df-compress
 A python package to compress pandas DataFrames akin to Stata's `compress` command. This function may prove particularly helpfull to those dealing with large datasets.

@@ -30,7 +30,7 @@ df.Year = np.random.randint(low=2000,high=2023,size=200).astype(str)
 df.State = np.random.choice(['RJ','SP','ES','MT'],size=200)
 df.Value= np.random.rand(200,1)
 
-df = compress(df, show_conversions=True)
+compress(df, show_conversions=True) # which modifies the original DataFrame without needing to reassign it
 ```
 Which will print for you the transformations and memory saved:
 ```

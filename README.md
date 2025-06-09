@@ -37,13 +37,14 @@ Which will print for you the transformations and memory saved:
 ```
 Initial memory usage: 0.02 MB
 Final memory usage: 0.00 MB
-Memory reduced by: 0.02 MB (91.5%)
+Memory reduced by: 0.02 MB (91.3%)
 
 Variable type conversions:
-column    from       to  memory saved (MB)
-  Year  object    int16           0.009727
- State  object category           0.009178
- Value float64  float32           0.000763
+   column    from       to  memory saved (MB)
+     Year  object    int16           0.009727
+    State  object category           0.009178
+    Value float64  float32           0.000763
+Int_value float64     int8           0.001335
 ```
 ## Optional Parameters
 The function has three optimal parameters (arguments):

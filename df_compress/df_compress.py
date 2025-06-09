@@ -42,9 +42,14 @@ def compress(df, convert_strings=True, numeric_threshold=0.999, show_conversions
 
         # Downcast numeric types
         if pd.api.types.is_integer_dtype(new_data):
+            # Downcast interger types
             new_data = pd.to_numeric(new_data, downcast='integer')
         elif pd.api.types.is_float_dtype(new_data):
-            new_data = pd.to_numeric(new_data, downcast='float')
+            # Attempt to downcast float types to integers, if no information is lost. Otherwise, keep as float
+            if np.all(np.isclose(new_data.dropna() % 1, 0)):
+                new_data = pd.to_numeric(new_data, downcast='integer')
+            else:
+                new_data = pd.to_numeric(new_data, downcast='float')
 
         new_dtype = new_data.dtype
         new_mem = new_data.memory_usage(deep=True)

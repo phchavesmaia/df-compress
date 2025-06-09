@@ -25,10 +25,11 @@ from df_compress import compress
 import pandas as pd
 import numpy as np
 
-df = pd.DataFrame(columns=["Year","State","Value"])
+df = pd.DataFrame(columns=["Year","State","Value","Int_value"])
 df.Year = np.random.randint(low=2000,high=2023,size=200).astype(str)
 df.State = np.random.choice(['RJ','SP','ES','MT'],size=200)
 df.Value= np.random.rand(200,1)
+df.Int_value = df.Value*10 // 1
 
 compress(df, show_conversions=True) # which modifies the original DataFrame without needing to reassign it
 ```

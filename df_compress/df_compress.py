@@ -23,7 +23,7 @@ def compress(df, convert_strings=True, numeric_threshold=0.999, show_conversions
     changes = []
 
     for col in df.columns:
-        col_data = df[col].copy()
+        col_data = df[col]
         old_dtype = col_data.dtype
         old_mem = col_data.memory_usage(deep=True)
         new_data = col_data.copy()
@@ -62,7 +62,7 @@ def compress(df, convert_strings=True, numeric_threshold=0.999, show_conversions
                 "memory saved (MB)": (old_mem - new_mem) / 1024**2
             })
 
-        df.loc[:,col] = new_data.values
+        df[col] = new_data
 
     end_mem = df.memory_usage(deep=True).sum() / 1024**2
     print(f"Final memory usage: {end_mem:.2f} MB")

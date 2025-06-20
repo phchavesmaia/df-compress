@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name='df-compress',
-    version='0.6.3',    
+    version='0.7.0',    
     description="A python package to compress pandas DataFrames akin to Stata's `compress` command",
     long_description=long_description,
     long_description_content_type="text/markdown",  
@@ -17,7 +17,8 @@ setup(
     license='MIT',
     packages=['df_compress'],
     install_requires=['pandas',
-                      'numpy',                     
+                      'numpy',  
+                      'dask',  
                       ],
     classifiers=[
         'Development Status :: 3 - Alpha',

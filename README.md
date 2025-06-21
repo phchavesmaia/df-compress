@@ -60,11 +60,11 @@ The function has three optimal parameters (arguments):
     - defaults to `False`
 
 ## Parallelization Caveats
-The parallelization is implemented using `Dask` and a local client. Moreover, the code is parallelized at the columns. Thus, opting for the parallel compression **does not** guarantees perfomance improvements and should be a conscious decision taken at the case-by-case basis. To prove this point, the implementation example provided above runs significantly slower when opting for the parallel compression (0.29x).
+The parallelization is implemented using `Dask` and a local client. Moreover, the code is parallelized at the columns. Thus, opting for parallel compression **does not** guarantee performance improvements and should be a conscious decision taken on a case-by-case basis. To prove this point, the implementation example provided above runs significantly slower when opting for parallel compression (0.29x).
 
-As far as I know, the reason why parallelization does not guarantee efficency regards the overhead time. Whenever you run some code in parallel you must "organize" it before computing the operation, which may take some time. If the efficiency gains from parallelizing the operation do not cover the overhead time, you incur an efficiency loss. Therefore, my recommendation is to only **opt for the parallel compression when you have a DataFrame with many columns**.
+As far as I know, the reason why parallelization does not guarantee efficiency regards the overhead time. Whenever you run some code in parallel you must "organize" it before computing the operation, which may take some time. If the efficiency gains from parallelizing the operation do not cover the overhead time, you incur an efficiency loss. Therefore, my recommendation is to only **opt for parallel compression when you have a DataFrame with many columns**.
 
-It follows a quick benchmark on a 12 CPUs computer to give you perspective on when to use the parallel compression:
+It follows a quick benchmark on a 12 CPUs computer to give you perspective on when to use parallel compression:
 ```python
 import pandas as pd
 from df_compress import compress
@@ -115,7 +115,7 @@ def generate_test_dataframe(n_rows=1_000_000, n_object_cols=10, n_numeric_cols=1
         data[f"num_{i}"] = np.random.randn(n_rows)
     return pd.DataFrame(data)
 ```
-When testing for a 40 column DataFrame (`benchmark_compression(generate_test_dataframe(n_object_cols=20, n_numeric_cols=20))`) I find that
+When testing for a 40 column DataFrame (`benchmark_compression(generate_test_dataframe(n_object_cols=20, n_numeric_cols=20))`) I find that:
 ```
 Running benchmark on DataFrame with shape: (1000000, 40) 
 

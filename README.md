@@ -91,19 +91,16 @@ def timereps(reps, func):
 def benchmark_compression(df):
     print("Running benchmark on DataFrame with shape:", df.shape, "\n")
     
-    # Non-parallel
     print("Testing non-parallel compression...")
     with HiddenPrints():
         time_non_parallel = timereps(10, lambda: compress(df.copy(deep=True), parallel=False, show_conversions=False))
     print(f"Non-parallel time: {time_non_parallel:.2f} seconds\n")
     
-    # Parallel
     print("Testing parallel compression...")
     with HiddenPrints():
         time_parallel = timereps(10, lambda: compress(df.copy(deep=True), parallel=True, show_conversions=False))
     print(f"Parallel time: {time_parallel:.2f} seconds\n")
     
-    # Summary
     speedup = time_non_parallel / time_parallel if time_parallel > 0 else float('inf')
     print(f"Parallel speedup: {speedup:.2f}x")
 

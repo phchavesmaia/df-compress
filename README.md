@@ -124,3 +124,4 @@ Parallel time: 12.06 seconds
 
 Parallel speedup: 1.46x
 ```
+That said, a **known issue** is that parallel compression breaks down when dealing with really large datasets (56M rows and 50+ columns, for example). Addressing this is a top priority on the to-do list.

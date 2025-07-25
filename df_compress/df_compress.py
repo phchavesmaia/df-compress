@@ -65,7 +65,7 @@ def compress(df, convert_strings=True, numeric_threshold=0.999, show_conversions
     changes = []
         
     # Without parallel processing #
-    if parallel == False:
+    if not parallel:
         # looping over the columns
         for col in df.columns:
             col_data = df[col]
@@ -102,8 +102,8 @@ def compress(df, convert_strings=True, numeric_threshold=0.999, show_conversions
                 print("No conversions were applied.")
                 
     # With parallel processing #            
-    else:
-        with Client(processes=True, dashboard_address=":8788") as client:
+    elif parallel:
+        with Client(processes=True, dashboard_address=None) as client:
             old_dtypes = df.dtypes
             
             # Submit each column to Dask scheduler
